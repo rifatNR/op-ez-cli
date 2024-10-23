@@ -1,0 +1,34 @@
+{
+    "localConfig": {
+        "currentWorkspace": "homeWindows"
+    },
+    "config": {
+        "username": "Mohammad Rifat Noor",
+        "workspaces": {
+            "officeUbuntu": "linux",
+            "homeWindows": "windows"
+        },
+        "commands": {
+            "officeUbuntu": {
+                "code": "code #",
+                "explorer": "nautilus #",
+                "ls": "exa --tree #"
+            },
+            "homeWindows": {
+                "code": "code #",
+                "explorer": "ii #",
+                "ls": "ls #"
+            }
+        },
+        "savedPaths": {
+            "officeUbuntu": {
+                "JOJO": "/home/rifat/Works/bomba/send_files",
+                "Ekhon-Web": "/home/rifat/Works/ekhontv-mono/apps/web",
+                "Wrokbench": "/home/rifat/Works/Common-Workbench",
+                "Test-Path-001": ".",
+                "Test-Path-002": "D:\\Codings\\Works\\Answer-to-Everything",
+                "AAA-TEST": "D:\\Codings\\Works\\Answer-to-Everything"
+            }
+        }
+    }
+}
