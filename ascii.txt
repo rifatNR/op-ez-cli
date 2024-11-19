@@ -90,7 +90,7 @@
 │                                                                                                                   │
 │       $ overview                                                                                                  │
 │       ┌ Github    https://github.com/rifatNR                                                                      │
-│       ├ Bio       Code-slinger fueled by epic software, game dev dreams, fine coffee, and One Piece vibes. ☕🏴‍☠️   │
+│       ├ Bio       Code-slinger fueled by epic software, game dev dreams, fine coffee, and One Piece vibes. ☕🏴‍☠️    │
 │       ├ Blog      https://rifatnoor.vercel.app/                                                                   │
 │       ├ X         https://x.com/Rifat__Noor                                                                       │
 │       ├ Location  Mirpur-14, Dhaka                                                                                │
