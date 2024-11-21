@@ -103,7 +103,7 @@ const Setup = () => {
 				</Box>
 			) : (
 				<Box>
-					<SelectList items={items} onSelect={onSelect} />
+					<SelectList items={items} onEnter={onSelect} />
 				</Box>
 			)}
 		</Box>

@@ -1,8 +1,10 @@
 import SelectList, {TItem} from '@/components/Misc/SelectList.js';
+import {runCommand} from '@/functions/runCommand.js';
 import {$currStep, $paths, $selectedPath} from '@/stores/baseStore.js';
 import {useStore} from '@nanostores/react';
-import {Box} from 'ink';
+import {Box, Text} from 'ink';
 import React, {useMemo} from 'react';
+import path from 'path';
 
 const PathList = () => {
 	const paths = useStore($paths);
@@ -21,10 +23,41 @@ const PathList = () => {
 		$selectedPath.set(item.value);
 		$currStep.set('SELECT_COMMAND');
 	};
+	const onRightArrow = (item: TItem) => {
+		$selectedPath.set(item.value);
+		console.log(item.value);
+		const targetPath = path.resolve(item.value);
+		process.chdir('~' + targetPath);
+		// runCommand(`cd ${item.value}`);
+	};
+	const onCPress = (item: TItem) => {
+		$selectedPath.set(item.value);
+		runCommand(`code ${item.value}`);
+	};
+	const onXPress = (item: TItem) => {
+		$selectedPath.set(item.value);
+		console.log('X Pressed');
+	};
 
 	return (
-		<Box>
-			<SelectList items={items} onSelect={onSelect} />
+		<Box flexDirection="column">
+			<Box flexDirection="column" marginBottom={1}>
+				<Text>
+					<Text backgroundColor={'#A855F7'}>⠀↩ Enter</Text> to select Path
+				</Text>
+				{/* <Text>
+					<Text backgroundColor={'#cb9ef5'}>⠀→ Right Arrow </Text> to cd
+				</Text> */}
+			</Box>
+			<SelectList
+				items={items}
+				onEnter={onSelect}
+				onRightArrow={onRightArrow}
+				specialKeyAction={{
+					c: onCPress,
+					x: onXPress,
+				}}
+			/>
 		</Box>
 	);
 };

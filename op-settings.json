@@ -22,16 +22,16 @@
         },
         "savedPaths": {
             "officeUbuntu": {
-                "OP": "/home/rifat/Works/bomba/send_files",
-                "Ekhon-Web": "/home/rifat/Works/ekhontv-mono/apps/web",
-                "Wrokbench": "/home/rifat/Works/Common-Workbench",
+                "OP": "/home/rifat-noor/works/bomba/send_files",
+                "Ekhon-Web": "/home/rifat-noor/works/ekhontv-mono/apps/web",
+                "Wrokbench": "/home/rifat-noor/works/Common-Workbench",
                 "Test-Path-001": ".",
-                "Test-Path-002": "D:\\Codings\\Works\\Answer-to-Everything",
-                "AAA-TEST": "D:\\Codings\\Works\\Answer-to-Everything",
-                "test.http": "/home/rifat-noor/works/ekhontv-mono/test.http"
+                "Test-Path-002": "D:\\Codings\\works\\Answer-to-Everything",
+                "AAA-TEST": "D:\\Codings\\works\\Answer-to-Everything",
+                "test.http": "/home/rifat-noor-noor/works/ekhontv-mono/test.http"
             },
             "homeWindows": {
-                "GameDev": "/home/rifat-noor/works/GameDev"
+                "GameDev": "/home/rifat-noor-noor/works/GameDev"
             }
         }
     }

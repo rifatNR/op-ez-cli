@@ -35,7 +35,7 @@ const CommandList = () => {
 
 	return (
 		<Box>
-			<SelectList items={items} onSelect={onSelect} />
+			<SelectList items={items} onEnter={onSelect} />
 		</Box>
 	);
 };

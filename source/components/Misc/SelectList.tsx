@@ -9,9 +9,18 @@ export type TItem = {
 };
 type TProps = {
 	items: TItem[];
-	onSelect: (x: TItem) => void;
+	onEnter: (x: TItem) => void;
+	onRightArrow?: (x: TItem) => void;
+	specialKeyAction?: {
+		[key: string]: (x: TItem) => void;
+	};
 };
-const SelectList = ({items, onSelect}: TProps) => {
+const SelectList = ({
+	items,
+	onEnter,
+	onRightArrow,
+	specialKeyAction,
+}: TProps) => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	useInput((input, key) => {
@@ -25,9 +34,30 @@ const SelectList = ({items, onSelect}: TProps) => {
 			const selectedItem = items[selectedIndex];
 
 			if (selectedItem) {
-				onSelect(selectedItem);
+				onEnter(selectedItem);
 			} else {
-				logError('No Item Found!');
+				logError('No Path Found!');
+			}
+		} else if (key.rightArrow) {
+			const selectedItem = items[selectedIndex];
+
+			if (selectedItem && typeof onRightArrow === 'function') {
+				onRightArrow(selectedItem);
+			} else {
+				logError('No Path Found!');
+			}
+		} else if (
+			specialKeyAction &&
+			Object.keys(specialKeyAction).includes(input)
+		) {
+			const selectedItem = items[selectedIndex];
+
+			const actionFunction = specialKeyAction[input];
+
+			if (selectedItem && typeof actionFunction === 'function') {
+				actionFunction(selectedItem);
+			} else {
+				logError('No Path Found!');
 			}
 		}
 	});
