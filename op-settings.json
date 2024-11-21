@@ -1,6 +1,6 @@
 {
     "localConfig": {
-        "currentWorkspace": "homeWindows"
+        "currentWorkspace": "officeUbuntu"
     },
     "config": {
         "username": "Mohammad Rifat Noor",
@@ -22,12 +22,16 @@
         },
         "savedPaths": {
             "officeUbuntu": {
-                "JOJO": "/home/rifat/Works/bomba/send_files",
+                "OP": "/home/rifat/Works/bomba/send_files",
                 "Ekhon-Web": "/home/rifat/Works/ekhontv-mono/apps/web",
                 "Wrokbench": "/home/rifat/Works/Common-Workbench",
                 "Test-Path-001": ".",
                 "Test-Path-002": "D:\\Codings\\Works\\Answer-to-Everything",
-                "AAA-TEST": "D:\\Codings\\Works\\Answer-to-Everything"
+                "AAA-TEST": "D:\\Codings\\Works\\Answer-to-Everything",
+                "test.http": "/home/rifat-noor/works/ekhontv-mono/test.http"
+            },
+            "homeWindows": {
+                "GameDev": "/home/rifat-noor/works/GameDev"
             }
         }
     }

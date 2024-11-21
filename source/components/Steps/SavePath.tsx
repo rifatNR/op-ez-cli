@@ -8,6 +8,7 @@ import {
 import {useStore} from '@nanostores/react';
 import {Box, Text, useInput} from 'ink';
 import TextInput from 'ink-text-input';
+import path from 'node:path';
 import React, {useState} from 'react';
 
 const SavePath = () => {
@@ -20,8 +21,11 @@ const SavePath = () => {
 				$errorMsg.set('No path found.');
 				$currStep.set('FAILED');
 			} else if (!alias || alias == '') {
-				$errorMsg.set('No alias entered. Failed to save path');
-				$currStep.set('FAILED');
+				// $errorMsg.set('No alias entered. Failed to save path');
+				// $currStep.set('FAILED');
+				await addToPaths(path.basename(pathToBeSaved), pathToBeSaved);
+				$successMsg.set('Path added successfully');
+				$currStep.set('SUCCESS');
 			} else {
 				await addToPaths(alias, pathToBeSaved);
 				$successMsg.set('Path added successfully');
@@ -50,7 +54,9 @@ const SavePath = () => {
 					<Text> {pathToBeSaved}</Text>
 				</Box>
 				<Box>
-					<Text>Enter an alias for this path: </Text>
+					<Text>
+						Enter an alias for this path <Text dimColor>(Optional)</Text>:{' '}
+					</Text>
 					<TextInput value={alias} onChange={setAlias} />
 				</Box>
 			</Box>
