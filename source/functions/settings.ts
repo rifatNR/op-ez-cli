@@ -15,23 +15,13 @@ import {exec} from 'child_process';
 import {promisify} from 'util';
 
 type TSettings = {
-	localConfig: {
-		currentWorkspace: string;
-	};
 	config: {
 		username: string;
-		workspaces: {
-			[workspace: string]: string;
-		};
 		commands: {
-			[workspace: string]: {
-				[alias: string]: string;
-			};
+			[alias: string]: string;
 		};
 		savedPaths: {
-			[workspace: string]: {
-				[pathAlias: string]: string;
-			};
+			[pathAlias: string]: string;
 		};
 	};
 };
@@ -61,30 +51,20 @@ const saveToSettingsJson = (settingsObj: TSettings): Promise<void> => {
 	});
 };
 
-export const setupInit = async (workspace: string): Promise<void> => {
+export const setupInit = async (): Promise<void> => {
 	try {
 		const currOperatingSystem = os.platform();
 		const username = os.hostname();
 
 		const newSettings: TSettings = {
-			localConfig: {
-				currentWorkspace: workspace,
-			},
 			config: {
 				username: username,
-				workspaces: {
-					[workspace]: currOperatingSystem,
-				},
 				commands: {
-					[workspace]: {
-						code: 'code #',
-						explorer: 'ii #',
-						ls: 'ls #',
-					},
+					code: 'code #',
+					explorer: 'ii #',
+					ls: 'ls #',
 				},
-				savedPaths: {
-					[workspace]: {},
-				},
+				savedPaths: {},
 			},
 		};
 
@@ -95,47 +75,21 @@ export const setupInit = async (workspace: string): Promise<void> => {
 	}
 };
 
-export const setupWorkspace = async (workspace: string): Promise<void> => {
-	try {
-		const settings = readSettingsJson();
-
-		if (!settings) {
-			throw new Error('Something went wrong!');
-			// TODO:: Might take user to setup
-		}
-
-		if (!settings.config.workspaces[workspace]) {
-			const currOperatingSystem = os.platform();
-			settings.config.workspaces[workspace] = currOperatingSystem;
-		}
-
-		settings.localConfig.currentWorkspace = workspace;
-
-		await saveToSettingsJson(settings);
-	} catch (error) {
-		logError('Error setting current workspace:', error);
-		throw error;
-	}
-};
-
 export const addToPaths = async (
 	alias: string,
 	_path: string,
 ): Promise<void> => {
 	try {
 		const settings = readSettingsJson();
-		const currWorkspace = settings?.localConfig.currentWorkspace;
 
-		if (!settings || !currWorkspace) {
+		if (!settings) {
 			throw new Error('Something went wrong!');
-			// TODO:: Might take user to setup
 		}
 
 		settings.config.savedPaths = settings.config.savedPaths ?? {};
-		settings.config.savedPaths[currWorkspace] =
-			settings.config.savedPaths[currWorkspace] ?? {};
+		settings.config.savedPaths = settings.config.savedPaths ?? {};
 
-		settings.config.savedPaths[currWorkspace][alias] = _path;
+		settings.config.savedPaths[alias] = _path;
 
 		await saveToSettingsJson(settings);
 	} catch (error) {
@@ -172,16 +126,15 @@ export const openSettingsWithDefaultEditor = async (): Promise<void> => {
 export const useSettings = () => {
 	useEffect(() => {
 		const settings = readSettingsJson();
-		const currWorkspace = settings?.localConfig.currentWorkspace;
 
-		if (!settings || !currWorkspace) {
+		if (!settings) {
 			$currStep.set('SETUP');
 			return;
 		}
 
 		$username.set(settings.config.username);
-		$commands.set(settings.config.commands[currWorkspace] ?? {});
-		$paths.set(settings.config.savedPaths[currWorkspace] ?? {});
+		$commands.set(settings.config.commands ?? {});
+		$paths.set(settings.config.savedPaths ?? {});
 
 		return () => {};
 	}, []);

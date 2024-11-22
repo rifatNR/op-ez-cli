@@ -1,38 +1,18 @@
 {
-    "localConfig": {
-        "currentWorkspace": "officeUbuntu"
-    },
     "config": {
-        "username": "Mohammad Rifat Noor",
-        "workspaces": {
-            "officeUbuntu": "linux",
-            "homeWindows": "windows"
-        },
+        "username": "rifat-noor-pc",
         "commands": {
-            "officeUbuntu": {
-                "code": "code #",
-                "explorer": "nautilus #",
-                "ls": "exa --tree #"
-            },
-            "homeWindows": {
-                "code": "code #",
-                "explorer": "ii #",
-                "ls": "ls #"
-            }
+            "code": "code #",
+            "explorer": "ii #",
+            "ls": "ls #"
         },
         "savedPaths": {
-            "officeUbuntu": {
-                "OP": "/home/rifat-noor/works/bomba/send_files",
-                "Ekhon-Web": "/home/rifat-noor/works/ekhontv-mono/apps/web",
-                "Wrokbench": "/home/rifat-noor/works/Common-Workbench",
-                "Test-Path-001": ".",
-                "Test-Path-002": "D:\\Codings\\works\\Answer-to-Everything",
-                "AAA-TEST": "D:\\Codings\\works\\Answer-to-Everything",
-                "test.http": "/home/rifat-noor-noor/works/ekhontv-mono/test.http"
-            },
-            "homeWindows": {
-                "GameDev": "/home/rifat-noor-noor/works/GameDev"
-            }
+            "whotfis": "/home/rifat-noor/works/whotfis",
+            "patent-ideas": "/home/rifat-noor/works/patent-ideas",
+            "khamba": "/home/rifat-noor/works/bomba",
+            "Common-Workbench": "/home/rifat-noor/works/Common-Workbench",
+            "dev-ads": "/home/rifat-noor/works/dev-ads",
+            "op-ez-cli": "/home/rifat-noor/works/op-ez-cli"
         }
     }
 }
