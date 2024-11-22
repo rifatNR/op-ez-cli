@@ -1,9 +1,10 @@
 {
 	"name": "op-ez",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"license": "MIT",
 	"bin": {
-		"op": "dist/cli.js"
+		"op": "dist/cli.js", 
+		"ez": "dist/cli.js test" 
 	},
 	"type": "module",
 	"engines": {
