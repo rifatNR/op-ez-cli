@@ -39,7 +39,7 @@ const PathList = () => {
 		console.log('X Pressed');
 	};
 
-	return (
+	return !items.length ? (
 		<Box flexDirection="column">
 			<Box flexDirection="column" marginBottom={1}>
 				<Text>
@@ -58,6 +58,13 @@ const PathList = () => {
 					x: onXPress,
 				}}
 			/>
+		</Box>
+	) : (
+		<Box flexDirection="column" marginBottom={1}>
+			<Text>
+				You haven't saved any paths yet. Run
+				<Text color={'#A855F7'}>⠀"op save your-path"</Text>
+			</Text>
 		</Box>
 	);
 };
