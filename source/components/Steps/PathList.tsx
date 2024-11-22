@@ -43,11 +43,11 @@ const PathList = () => {
 		<Box flexDirection="column">
 			<Box flexDirection="column" marginBottom={1}>
 				<Text>
-					<Text backgroundColor={'#A855F7'}>⠀↩ Enter</Text> to select Path
+					◉⠀<Text backgroundColor={'#A855F7'}>⠀↩ Enter</Text> to select Path
 				</Text>
-				{/* <Text>
-					<Text backgroundColor={'#cb9ef5'}>⠀→ Right Arrow </Text> to cd
-				</Text> */}
+				<Text>
+					◉⠀<Text backgroundColor={'#e8f59e'}>⠀c </Text> to open in vscode
+				</Text>
 			</Box>
 			<SelectList
 				items={items}
