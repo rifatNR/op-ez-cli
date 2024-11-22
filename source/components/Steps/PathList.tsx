@@ -39,7 +39,7 @@ const PathList = () => {
 		console.log('X Pressed');
 	};
 
-	return !items.length ? (
+	return items.length ? (
 		<Box flexDirection="column">
 			<Box flexDirection="column" marginBottom={1}>
 				<Text>
